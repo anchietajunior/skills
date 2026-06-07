@@ -27,6 +27,8 @@ A skill is just its directory — install it by putting that directory in one of
 git clone https://github.com/anchietajunior/skills.git ~/code/skills
 ```
 
+This location is just a source checkout — **Claude Code does not scan `~/code/skills`** (or any path other than the two above). Cloning alone does nothing; the next step is what actually registers a skill by linking it into a discovery path. Don't clone straight into `~/.claude/skills/`, either — the repo's `skills/<name>/` layout would nest one level too deep.
+
 ### 2. Install a single skill
 
 **Symlink (recommended)** — stays current every time you `git pull`:
