@@ -1,6 +1,6 @@
 ---
 name: mastery-research
-description: Use when the user invokes the /mastery-research command, or asks to deeply research a subject and build a learning/mastery package. Researches a subject via deep web research, validates it against the current market, selects authoritative sources, and produces a CONTEXT.md learning package later consumed by the mastery-present skill. Do NOT use to generate the final tutorial or HTML — that is mastery-present's job; this skill only researches and writes CONTEXT.md.
+description: Use when the user invokes the mastery-research skill (/mastery-research in Claude Code, $mastery-research in Codex), or asks to deeply research a subject and build a learning/mastery package. Researches a subject via deep web research, validates it against the current market, selects authoritative sources, and produces a CONTEXT.md learning package later consumed by the mastery-present skill. Do NOT use to generate the final tutorial or HTML — that is mastery-present's job; this skill only researches and writes CONTEXT.md.
 ---
 
 # Mastery Research
@@ -49,7 +49,12 @@ digraph mastery_research {
 
 ## How research happens
 
-Delegate the heavy web research to the **`deep-research`** skill (via the Skill tool / `/deep-research`). Run **focused passes**, not one vague call — synthesize one refined question per research need and feed it in. Recommended passes:
+Delegate the heavy web research to a deep-research capability, with graceful fallback so the skill works in any host:
+
+- **If a `deep-research` skill is available** (e.g. Claude Code, via the Skill tool / `/deep-research`), use it.
+- **Otherwise** (e.g. Codex), use the host's built-in web search / fetch tools and run the same focused passes yourself.
+
+Run **focused passes**, not one vague call — synthesize one refined question per research need and feed it in. Recommended passes:
 
 1. **Sources & specialists** — authoritative books, official docs, specs, and the leading practitioners for the subject.
 2. **Market validation** — current adoption, tooling, best practices, and what is now outdated.
@@ -81,7 +86,7 @@ ruby-on-rails/
 
 1. **Language check.** Ask whether to interact in **pt-br** or **English**, then continue in that language (repo standing rule).
 2. **Gather the four required inputs.** If any is unclear, STOP and ask. Do not research a vague subject.
-3. **Research.** Run the `deep-research` passes above. Capture citations as you go — you will need them for §21.
+3. **Research.** Run the research passes above (the `deep-research` skill if available, otherwise native web search). Capture citations as you go — you will need them for §21.
 4. **Select sources** per the source-selection spec in the protocol (≥2 bibliography + ≥2 specialists, all fields).
 5. **Validate against the market**, skeptically. Explicitly separate *still relevant* / *needs context* / *outdated or dangerous to teach as current*.
 6. **Build the knowledge map, roadmap, mental models, misconceptions, exercises, projects, and capstone** — concrete, level-appropriate, no filler.
