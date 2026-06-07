@@ -6,12 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A personal pack of **agent skills** — reusable, invokable workflows used by the owner (a software engineer and professor) in Claude Code, and meant to be shared with others. Each skill is a self-contained Markdown file that packages a process: when to trigger, the steps to follow, checklists, and the expected output. There is no application code, build system, or test suite — the skills *are* the source.
 
+See [README.md](README.md) for the human-facing catalog of available skills and installation instructions.
+
 ## Standing rules for this repo
 
 These override default behavior and apply to every session:
 
 1. **Language check first.** Whenever a skill is being **created or used**, ask whether to interact in **pt-br or English** before proceeding. Skill content here is frequently written in Portuguese.
 2. **Interview before authoring.** When creating a new skill, ask the owner relevant questions about its objective until the purpose, trigger, and scope are 100% clear and unambiguous. Never scaffold a skill from a vague request — clarify first.
+3. **Keep the README current.** Whenever a skill is added, removed, or renamed, update the skills catalog table in [README.md](README.md) in the same change (and the install examples if a skill name changed). The README must always reflect the actual contents of `skills/`.
 
 ## Skill format
 
