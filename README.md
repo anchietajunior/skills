@@ -23,6 +23,20 @@ Each tool discovers skills in its own directories — a personal one (all projec
 
 A skill is just its directory. You install it by placing (linking) that directory into the location your tool reads. The directory name becomes the command.
 
+### Quick install (script)
+
+After cloning, the bundled script installs every skill into both tools at once:
+
+```bash
+~/code/skills/scripts/install.sh            # both tools, symlinked, personal dirs
+~/code/skills/scripts/install.sh --list     # list available skills
+~/code/skills/scripts/install.sh --tool codex --mode copy
+~/code/skills/scripts/install.sh --project ~/work/my-repo   # project-scoped
+~/code/skills/scripts/install.sh --help     # all options (--skill, --force, ...)
+```
+
+Prefer to do it by hand, or want to understand what the script does? The manual steps below are equivalent.
+
 ### 1. Clone this repo
 
 ```bash
