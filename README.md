@@ -9,6 +9,7 @@ Every skill follows the **`SKILL.md` open standard** (YAML frontmatter with `nam
 | Skill | Command | What it does |
 |-------|---------|--------------|
 | [mastery-research](skills/mastery-research/SKILL.md) | `/mastery-research` · `$mastery-research` | Deeply researches a subject, validates it against the current market, picks authoritative sources, and writes a 21-section `CONTEXT.md` learning package for the `mastery-present` skill to consume. Researches only — it does **not** generate the final tutorial/HTML. |
+| [mastery-present](skills/mastery-present/SKILL.md) | `/mastery-present` · `$mastery-present` | Consumes a `mastery-research` `CONTEXT.md` and builds one self-contained `index.html` — a calm, long-form study guide with explanations, examples, mistakes, exercises, checkpoints, a capstone, and a retention plan. Presents only — it does **not** research the subject. |
 
 > This table is the source of truth for what's in this pack. Keep it in sync with the `skills/` directory whenever a skill is added, removed, or renamed.
 
