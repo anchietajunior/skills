@@ -6,12 +6,19 @@ Every skill follows the **`SKILL.md` open standard** (YAML frontmatter with `nam
 
 ## Available skills
 
-| Skill | Command | What it does |
-|-------|---------|--------------|
-| [mastery-research](skills/mastery-research/SKILL.md) | `/mastery-research` · `$mastery-research` | Deeply researches a subject, validates it against the current market, picks authoritative sources, and writes a 21-section `CONTEXT.md` learning package for the `mastery-present` skill to consume. Researches only — it does **not** generate the final tutorial/HTML. |
-| [mastery-present](skills/mastery-present/SKILL.md) | `/mastery-present` · `$mastery-present` | Consumes a `mastery-research` `CONTEXT.md` and builds one self-contained `index.html` — a calm, long-form study guide with explanations, examples, mistakes, exercises, checkpoints, a capstone, and a retention plan. Presents only — it does **not** research the subject. |
+Two kinds of skills live here: ones I **authored**, and ones I **curated** — published by other authors, vendored in unmodified (except for an attribution note) and kept installable through the same pipeline.
 
-> This table is the source of truth for what's in this pack. Keep it in sync with the `skills/` directory whenever a skill is added, removed, or renamed.
+### Authored by me
+
+_None published yet — my own skills will land here._
+
+### Curated by me (other authors)
+
+| Skill | Command | Author | What it does |
+|-------|---------|--------|--------------|
+| [teach](skills/teach/SKILL.md) | `/teach` · `$teach` | [Matt Pocock](https://github.com/mattpocock/skills/tree/main/skills/productivity/teach) (MIT) | Turns the current directory into a stateful teaching workspace and teaches you a topic across multiple sessions. Captures your mission, gathers high-trust resources, then builds short, beautiful, self-contained HTML lessons tied to your zone of proximal development — knowledge first, then interactive skill practice, with learning records tracking your progress. Manual invocation only. |
+
+> These tables are the source of truth for what's in this pack. Keep them in sync with the `skills/` directory whenever a skill is added, removed, or renamed.
 
 ## Installing skills
 
@@ -53,11 +60,11 @@ Symlinking is recommended — the skill stays current every time you `git pull`.
 ```bash
 # Claude Code (personal)
 mkdir -p ~/.claude/skills
-ln -s ~/code/skills/skills/mastery-research ~/.claude/skills/mastery-research
+ln -s ~/code/skills/skills/teach ~/.claude/skills/teach
 
 # Codex (personal)
 mkdir -p ~/.agents/skills
-ln -s ~/code/skills/skills/mastery-research ~/.agents/skills/mastery-research
+ln -s ~/code/skills/skills/teach ~/.agents/skills/teach
 ```
 
 Prefer a static snapshot that won't track updates? Use `cp -r` instead of `ln -s`.
@@ -80,8 +87,8 @@ Swap the personal dir for the project one in any command above — `<project>/.c
 
 ### Verify
 
-- **Claude Code:** start (or restart) Claude Code and run `/mastery-research`.
-- **Codex:** run `/skills` to list discovered skills, or invoke `$mastery-research` directly.
+- **Claude Code:** start (or restart) Claude Code and run `/teach`.
+- **Codex:** run `/skills` to list discovered skills, or invoke `$teach` directly.
 
 If a skill doesn't appear, confirm its directory contains a `SKILL.md` with valid frontmatter and that it's under the right discovery path for your tool.
 

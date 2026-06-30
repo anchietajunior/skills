@@ -155,8 +155,8 @@ done
 echo "Done. Verify with:"
 for tool in "${tools[@]}"; do
   if [ "$tool" = "claude" ]; then
-    echo "  Claude Code: restart, then run /<skill-name> (e.g. /mastery-research)"
+    echo "  Claude Code: restart, then run /<skill-name> (e.g. /teach)"
   else
-    echo "  Codex: run /skills to list, or invoke \$<skill-name> (e.g. \$mastery-research)"
+    echo "  Codex: run /skills to list, or invoke \$<skill-name> (e.g. \$teach)"
   fi
 done
